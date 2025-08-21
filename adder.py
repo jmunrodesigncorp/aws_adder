@@ -45,4 +45,22 @@ def lambda_adder(eventID1, incr, context):
             print("Error: Event ID exception thrown. exit.")
             exit()
 
+def lambda_handler(event, context):
+   # create output
+   variable1 = "event1"
+   value1 = 5
+   variable2 = "event2"
+   value2 = 1
+   value = adder(value1, value2)
+
+   output = {}
+   output[variable1] = value1
+   output[variable2] = value2
+   output["result"] = value
+
+   return {
+        'statusCode': 200,
+        'body': json.dumps(output)
+   }
+
 ### end
